@@ -1,0 +1,29 @@
+<?php
+include 'db.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nombre = $_POST['nombre'];
+    $telefono = $_POST['telefono'];
+    $correo = $_POST['correo'];
+
+    if (!empty($nombre) && !empty($telefono) && !empty($correo)) {
+        $stmt = $conn->prepare("INSERT INTO Clientes (Nombre, Telefono, Correo) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $nombre, $telefono, $correo);
+
+        if ($stmt->execute()) {
+            // Redirige a la página de confirmación si el registro es exitoso
+            header("Location: confirmacion.html");
+            exit();
+        } else {
+            echo "Error al registrar: " . $stmt->error;
+        }
+
+        $stmt->close();
+        $conn->close();
+    } else {
+        echo "Por favor, complete todos los campos.";
+    }
+} else {
+    echo "Método no permitido.";
+}
+?>

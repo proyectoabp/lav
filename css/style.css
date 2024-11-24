@@ -1,0 +1,130 @@
+/* Estilo general de la página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6f7ff;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+/* Efecto de pantalla completa para cada sección */
+main {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: auto;
+}
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+  background: #fff;
+  border-left: 6px solid #ff66b2;
+  border-top: 6px solid #0099cc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  color: #ff66b2;
+  text-align: center;
+}
+/* Encabezado */
+header {
+  background-color: #0099cc;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header h1 {
+  margin: 10px 0;
+}
+/* Botones de navegación */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.nav-buttons a {
+  text-decoration: none;
+  background-color: #ff66b2;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px #cc528a;
+}
+.nav-buttons a:hover {
+  background-color: #ff4d94;
+  box-shadow: 0 2px #cc528a;
+  transition: 0.3s;
+}
+/* Colores de la lista */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+ul li {
+  margin: 5px 0;
+  padding: 8px;
+  background-color: #ffe6f2;
+  border-left: 4px solid #ff66b2;
+  border-radius: 3px;
+}
+/* Estilo de formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 170%;
+  max-width: 500px;
+}
+input,
+textarea {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+button {
+  width: 100px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #ff66b2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px #cc528a;
+}
+button:hover {
+  background-color: #ff4d94;
+  box-shadow: 0 2px #cc528a;
+  transition: 0.3s;
+}
+/* Mapa de ubicación */
+.map-container {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #e6f7ff;
+}
+
+.lav1.jpg {
+  height: 150px;
+  width: 150px;
+  }
+
+  .lav.jpg {
+    height: 150px;
+    width: 150px;
+    }

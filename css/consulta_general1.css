@@ -1,0 +1,30 @@
+body {
+    background: linear-gradient(to bottom, #ffb936, #3cc1e9);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+#table-container {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+h1 {
+    color: blue;
+}
+
+h3 {
+    color: green;
+}

@@ -1,0 +1,71 @@
+<?php
+// Incluir el archivo de conexión
+include 'db.html'; // Asegúrate de que este archivo contiene la conexión a la base de datos
+
+// Consulta a la tabla clientes
+$consulta = "SELECT * FROM Clientes";
+$resultado = $conn->query($consulta);
+
+// Verificar si la consulta fue exitosa
+if (!$resultado) {
+    die("Error al realizar la consulta: " . $conn->error);
+}
+
+// Manejo del cierre de sesión
+if (isset($_GET['logout'])) {
+    session_start(); // Inicia o reanuda la sesión
+    session_destroy(); // Destruye la sesión
+    header("Location: index.html");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Consultar Clientes</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css\consulta_general1.css"> <!-- Enlace al archivo CSS separado -->
+</head>
+<body>
+    <div id="table-container">
+        <h1>Consultar Clientes</h1>
+        <?php if ($resultado->num_rows > 0): ?>
+            <!-- Mostrar la tabla solo si hay resultados -->
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nombre</td>
+                        <td>Teléfono</td>
+                        <td>Correo</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($cliente = $resultado->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($cliente['ID']); ?></td>
+                            <td><?php echo htmlspecialchars($cliente['Nombre']); ?></td>
+                            <td><?php echo htmlspecialchars($cliente['Telefono']); ?></td>
+                            <td><?php echo htmlspecialchars($cliente['Correo+']); ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <!-- Mostrar un mensaje si no hay resultados -->
+            <p>No se encontraron clientes registrados.</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- Botón para cerrar sesión -->
+    <form method="GET" style="position: fixed; bottom: 20px; right: 20px;">
+        <button type="submit" name="logout" class="logout-btn">Cerrar Sesión</button>
+    </form>
+</body>
+</html>
+
+<?php
+// Cerrar la conexión a la base de datos
+$conn->close();
+?>
